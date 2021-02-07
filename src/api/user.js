@@ -23,6 +23,13 @@ export function logout() {
   })
 }
 
+export function getAll() {
+  return request({
+    url: BASE_URL + 'user/getAll',
+    method: 'GET'
+  })
+}
+
 export function getPage(pageNum, pageSize) {
   return request({
     url: BASE_URL + 'user/getPage',
@@ -43,7 +50,7 @@ export function add(user) {
 
 export function deleteById(id) {
   return request({
-    url: BASE_URL + 'user/delete',
+    url: BASE_URL + 'user/deleteById',
     method: 'GET',
     params: {
       id
@@ -66,6 +73,13 @@ export function search(pageNum, pageSize, matchStr) {
 export function update(user) {
   return request({
     url: BASE_URL + 'user/update',
+    method: 'POST',
+    data: user
+  })
+}
+export function save(user) {
+  return request({
+    url: BASE_URL + 'user/save',
     method: 'POST',
     data: user
   })

@@ -98,18 +98,18 @@ export const constantRoutes = [
  * the routes that need to be dynamically loaded based on user roles
  */
 export const asyncRoutes = [
-  // 测试页面
+  // 用户页面
   {
-    path: '/test',
+    path: '/user',
     component: Layout,
-    redirect: '/test/index',
+    redirect: '/user/index',
     hidden: false,
     children: [
       {
         path: 'index',
-        component: () => import('@/views/test/index'),
-        name: 'TestIndex',
-        meta: { title: '测试页面', icon: 'skill', noCache: true, roles: ['admin'] }
+        component: () => import('@/views/user/index'),
+        name: 'UserIndex',
+        meta: { title: '用户页面', icon: 'skill', noCache: true }
       }
     ]
   },
@@ -135,9 +135,24 @@ export const asyncRoutes = [
       }
     ]
   },
+  // 订单管理
+  {
+    path: '/order',
+    component: Layout,
+    redirect: '/order/index',
+    hidden: false,
+    children: [
+      {
+        path: 'index',
+        component: () => import('@/views/order/index'),
+        name: 'OrderIndex',
+        meta: { title: '订单管理', icon: 'skill', noCache: true }
+      }
+    ]
+  },
   {
     path: '/user/test',
-    component: () => import('@/views/user/test'),
+    component: () => import('@/views/user/index'),
     hidden: true
   },
   {
